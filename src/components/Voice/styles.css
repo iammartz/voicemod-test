@@ -1,0 +1,93 @@
+:root{
+    --iconSize: 125px;
+    --halfIconSize: 62px;
+    --backgroundSize: 150px;
+    --transition: all 0.2s ease-in-out;
+}
+
+.voice{
+    width: calc(100% / 6);
+    margin-bottom: 80px;
+    text-align: center;
+    height: 157px;
+}
+
+
+.voice:hover{ cursor: pointer; }
+
+.voice__circle{
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+
+.voice__circle__background{
+    position: relative;
+    border-radius: 50%;
+    width: var(--backgroundSize);
+    height: auto;
+    padding-top: var(--backgroundSize);
+    background-color: #d2d2d2;
+    left: 15%;
+    transition: var(--transition);
+}
+
+.voice__circle.selected .voice__circle__background, .voice:hover 
+.voice__circle.selected .voice__circle__background{
+    background: rgb(0,225,255);
+    background: linear-gradient(0deg, rgba(0,225,255,1) 35%, rgba(0,201,255,1) 100%);
+}
+
+.voice:hover .voice__circle__background { background-color: white; }
+
+.voice__circle__favourite{
+    position: absolute;
+    right: 15%;
+    top: 0;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    opacity: 1;
+    z-index: 1;
+    background-image: url('/assets/voice-favourite-off.svg');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: 40%;
+    transition: var(--transition);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.voice__circle__favourite:hover{
+    background-image: url('/assets/voice-favourite.svg');
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.voice:hover .voice__circle__favourite{ opacity: 1; }
+
+.voice__circle__icon{
+    width: var(--iconSize);
+    position: absolute;
+    left: calc(50% - var(--halfIconSize));
+    top: calc(47% - var(--halfIconSize));
+}
+
+.voice__imageContainer__image{
+    width: 100%;
+}
+
+.voice__title{
+    font-size: 1em;
+    text-align: center;
+    margin-top: 1em;
+    transition: var(--transition);
+}
+
+.voice__circle:hover ~ .voice__title, .voice__title:hover{ color: white; }
+
+.selected ~ .voice__title,
+.voice__circle:hover.selected ~ .voice__title{ color: #00c9ff; font-weight: bold;}
