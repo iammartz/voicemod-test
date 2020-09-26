@@ -1,4 +1,4 @@
-.App-body {
+.App {
   background-color: #1b1b1b;
   display: flex;
   flex-direction: column;
@@ -19,9 +19,24 @@
   flex-wrap: wrap;
 }
 
-.voiceSection{
+.section{
   width: 70%;
   position: relative;
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1em;
+}
+
+.rightElements{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: 1480px) {

@@ -1,0 +1,35 @@
+.select{
+    display: inline-flex;
+}
+
+.select__box, .select__box__input{
+    border: none;
+    background-color: #000;
+    color: white;
+    text-transform: capitalize;
+}
+
+.select__box__input{
+    margin-left: 10px;
+    width: 117px;
+}
+
+.select__box{
+    position: relative;
+    height: 34px;
+    border-radius: 10px;
+    background-color: #000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2.5em;
+}
+
+.select__box__arrow{
+    position: absolute;
+    right: 10px;
+}
+
+.select__icon{
+    margin-right: 1em;
+}
