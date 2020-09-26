@@ -1,30 +1,52 @@
 import React, { Component } from 'react';
 import './styles.css'
-export default class Voice extends React.Component {
+import { setVoiceAction } from '../../actions/setVoiceAction';
+import { connect } from 'react-redux';
+import { toggleFavouriteVoice } from '../../actions/toggleFavouriteVoice';
 
-    state = {
-        status: false
-    }
-
+class Voice extends React.Component {
     constructor(props){
         super(props)
-        this.handleClick = this.handleClick.bind(this);
+        this.handleActivateVoice = this.handleActivateVoice.bind(this);
+        this.handleAddFavourite = this.handleAddFavourite.bind(this);
     }
 
-    handleClick(){
-        this.setState({status: !this.state.status})
+    handleActivateVoice(){
+        this.props.setVoiceAction(this.props.id);
+    }
+
+    handleAddFavourite(){
+        this.props.toggleFavouriteVoice(this.props);
     }
 
     render() {
         return(
-            <div className="voice" onClick={this.handleClick}>
-                <div className={`voice__circle ${this.state.status ? 'selected' : ''}`}>
-                    <div className="voice__circle__background"></div>
-                    <div className="voice__circle__favourite"></div>
-                    <img className="voice__circle__icon" src={`/assets/${this.props.icon}`}></img>
+            <div className="voice">
+                <div className={`voice__circle ${this.props.voiceReducer.activeVoice === this.props.id ? 'selected' : ''}`}>
+                    <div onClick={this.handleAddFavourite} className="voice__circle__favourite"></div>
+                    <div onClick={this.handleActivateVoice}>
+                        <div className="voice__circle__background"></div>
+                        <img className="voice__circle__icon" src={`/assets/${this.props.icon}`}></img>
+                    </div>
                 </div>
                 <div className="voice__title">{this.props.title}</div>
             </div>
         )
     }
 }
+
+const mapStateToProps = (state) => ({
+    ...state
+   })
+  
+const mapDispatchToProps = (dispatch) => ({
+     setVoiceAction: (e) => {
+       dispatch(setVoiceAction(e))
+      },
+      toggleFavouriteVoice: (e) => {
+          dispatch(toggleFavouriteVoice(e))
+      }
+   })
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Voice)
