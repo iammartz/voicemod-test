@@ -1,15 +1,11 @@
 :root{
-    --iconSize: 125px;
-    --halfIconSize: 62px;
-    --backgroundSize: 150px;
     --transition: all 0.2s ease-in-out;
 }
 
 .voice{
-    width: calc(100% / 6);
-    margin-bottom: 80px;
+    width: 100%;
+    margin-bottom: 20px;
     text-align: center;
-    height: 157px;
 }
 
 
@@ -24,11 +20,10 @@
 .voice__circle__background{
     position: relative;
     border-radius: 50%;
-    width: var(--backgroundSize);
+    width: 100%;
     height: auto;
-    padding-top: var(--backgroundSize);
+    padding-top: 100%;
     background-color: #d2d2d2;
-    left: 15%;
     transition: var(--transition);
 }
 
@@ -42,16 +37,13 @@
 
 .voice__circle__favourite{
     position: absolute;
-    right: 15%;
+    right: -12px;
     top: 0;
     background-color: white;
     width: 40px;
     height: 40px;
     display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 50px;
-    opacity: 1;
     z-index: 1;
     background-image: url('/assets/voice-favourite-off.svg');
     background-repeat: no-repeat;
@@ -74,10 +66,10 @@
 .voice:hover .voice__circle__favourite{ opacity: 1; }
 
 .voice__circle__icon{
-    width: var(--iconSize);
+    width: 100%;
     position: absolute;
-    left: calc(50% - var(--halfIconSize));
-    top: calc(47% - var(--halfIconSize));
+    left: 0;
+    top: 0;
 }
 
 .voice__imageContainer__image{

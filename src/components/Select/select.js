@@ -1,37 +1,60 @@
 import React, { Component } from "react";
-import TitleSeparator from "../TitleSeparator/TitleSeparator";
 import "./styles.css";
 export default class Select extends Component {
   constructor(props) {
     super(props);
-    this.handleInput = this.handleInput.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.handleSelectDisplay = this.handleSelectDisplay.bind(this);
+    this.handleDefault = this.handleDefault.bind(this);
     this.state = {
-      selectedState: null
-    }
+      selectedState: this.props.default,
+      activeDropdown: false
+    };
   }
 
-  handleInput(e) {
-    this.props.searchBarInput(e.target.value);
+  handleSelect(e) {
+    this.setState({selectedState: e.target.getAttribute("value")})
+    this.props.handleOnClick(e.target.getAttribute("value"));
   }
 
-  handleSelect(e){
-    this.props.handleOnClick(e.target.value);
+  handleDefault(e){
+    this.props.handleOnClick("default")
+    this.setState({selectedState: e.target.getAttribute("value")})
+  }
+
+  handleSelectDisplay() {
+    this.setState({ activeDropdown: !this.state.activeDropdown });
   }
 
   render() {
     return (
-      <div className="select">
+      <div className="select" onClick={this.handleSelectDisplay}>
         <img className="select__icon" src={this.props.icon}></img>
-        <div className="select__box">
+        <div className={`select__box ${
+                  this.state.activeDropdown ? "active" : ""
+                }`}>
+          <div className="select__box__selectedItem">
+            {this.state.selectedState}
+          </div>
           {this.props.options && (
-            <select onChange={this.handleSelect} value={this.state.selectedState} className="select__box__input">
-              <option value="default">{this.props.default}</option>
-              {this.props.options.map((option) => (
-                (option.toLowerCase() !== this.props.default &&
-                <option value={option}>{option}</option>)
-              ))}
-            </select>
+            <div
+              value={this.state.selectedState}
+              className="select__box__input"
+            >
+              <div
+                className={`select__dropdown ${
+                  this.state.activeDropdown ? "active" : ""
+                }`}
+              >
+                <div onClick={this.handleDefault} className="select__dropdown__option" value={this.props.default}>{this.props.default}</div>
+                {this.props.options.map(
+                  (option) =>
+                    option.toLowerCase() !== this.props.default && (
+                      <div onClick={this.handleSelect} className="select__dropdown__option" value={option}>{option}</div>
+                    )
+                )}
+              </div>
+            </div>
           )}
           <img
             className="select__box__arrow"

@@ -2,14 +2,16 @@
   --backgroundColor: #1b1b1b;
 }
 
-.App {
+* {
+    color: white;
+}
+
+.App, body {
   background-color: var(--backgroundColor);
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-size: 16px;
   color: #858585;
-  min-height: 100vh;
 }
 
 .App-link {
@@ -17,15 +19,9 @@
 }
 
 .voiceContainer{
-  width: 100%;
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
-
-.section{
-  width: 70%;
-  position: relative;
 }
 
 .header{
@@ -34,7 +30,6 @@
   flex-direction: row;
   flex: 1;
   justify-content: space-between;
-  width: 100%;
   background-color: var(--backgroundColor);
   z-index: 9;
   height: 4em;
@@ -46,9 +41,13 @@
   justify-content: center;
 }
 
+.leftElements{
+  display: inline-flex;
+  align-items: center;
+}
+
 .separator{
-  height: 2em;
-  width: 100%;
+  height: 4em;
 }
 
 .flex{
@@ -56,16 +55,4 @@
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-}
-
-@media screen and (max-width: 1480px) {
-  .voiceSection{
-    width: 80%;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  .voiceSection{
-    width: 90%;
-  }
 }

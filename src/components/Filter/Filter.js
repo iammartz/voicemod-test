@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './styles.css'
 import Select from '../Select/select';
 export default class Filter extends Component {
 
@@ -14,7 +13,7 @@ export default class Filter extends Component {
 
     render() {
         return(
-           <Select icon="/assets/filter.svg" options={this.props.options} handleOnClick={this.handleOnClick}></Select>
+           <Select icon="/assets/filter.svg" options={this.props.options} default="all" handleOnClick={this.handleOnClick}></Select>
         )
     }
 }

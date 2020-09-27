@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './styles.css'
 import Select from '../Select/select';
 export default class OrderBy extends Component {
 

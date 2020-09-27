@@ -14,7 +14,7 @@ export default class SearchBar extends Component {
         return(
             <div className="searchBar">
                 <img className="searchBar__icon" src="/assets/search.svg"></img>
-                <input type="text" defaultValue="" onInput={this.handleInput}></input>
+                <input type="text" onInput={this.handleInput}></input>
             </div>
         )
     }
