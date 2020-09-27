@@ -29,7 +29,7 @@ export default class Select extends Component {
   render() {
     return (
       <div className="select" onClick={this.handleSelectDisplay}>
-        <img className="select__icon" src={this.props.icon}></img>
+        <img className="select__icon" alt="" src={this.props.icon}></img>
         <div className={`select__box ${
                   this.state.activeDropdown ? "active" : ""
                 }`}>
@@ -50,13 +50,14 @@ export default class Select extends Component {
                 {this.props.options.map(
                   (option) =>
                     option.toLowerCase() !== this.props.default && (
-                      <div onClick={this.handleSelect} className="select__dropdown__option" value={option}>{option}</div>
+                      <div key={option} onClick={this.handleSelect} className="select__dropdown__option" value={option}>{option}</div>
                     )
                 )}
               </div>
             </div>
           )}
           <img
+            alt=""
             className="select__box__arrow"
             src="/assets/select-arrow.svg"
           ></img>

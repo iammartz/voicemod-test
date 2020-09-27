@@ -26,7 +26,7 @@ class Randomize extends Component {
     return (
       <>
         <div className="randomize" onClick={this.randomize}>
-          <img src="/assets/button-random.svg"></img>
+          <img alt="select random voice" src="/assets/button-random.svg"></img>
         </div>
         <div
           className={`randomize__message ${
@@ -36,6 +36,7 @@ class Randomize extends Component {
           {this.state.randomizedVoice && (
             <>
               <img
+                alt="voice icon"
                 className="randomize__message__image"
                 src={`/assets/${this.state.randomizedVoice.icon}`}
               ></img>

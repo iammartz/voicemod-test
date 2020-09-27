@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./styles.css";
 import { setVoiceAction } from "../../actions/setVoiceAction";
 import { connect } from "react-redux";
@@ -45,6 +45,7 @@ class Voice extends React.Component {
           <div onClick={this.handleActivateVoice}>
             <div className="voice__circle__background"></div>
             <img
+              alt="voice icon"
               className="voice__circle__icon"
               src={`/assets/${this.props.icon}`}
             ></img>

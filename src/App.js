@@ -104,25 +104,25 @@ class App extends React.Component {
         <div className="separator"></div>
         {this.props.favouriteVoicesReducer.favouriteVoices.length > 0 && (
           <>
-          <div className="row">
+            <div className="row">
               <TitleSeparator title="Favourite voices" />
-              </div>
-          <div className="row">
-            <div className="voiceContainer row">
-              {this.props.favouriteVoicesReducer.favouriteVoices.map(
-                (voice) => (
-                  <div className="col-2">
-                    <Voice
-                      title={voice.title}
-                      id={voice.id}
-                      icon={voice.icon}
-                      tags={voice.tags}
-                      active={selectedVoice === voice.id}
-                    />
-                  </div>
-                )
-              )}
             </div>
+            <div className="row">
+              <div className="voiceContainer row">
+                {this.props.favouriteVoicesReducer.favouriteVoices.map(
+                  (voice) => (
+                    <div key={voice.id} className="col-2">
+                      <Voice
+                        title={voice.title}
+                        id={voice.id}
+                        icon={voice.icon}
+                        tags={voice.tags}
+                        active={selectedVoice === voice.id}
+                      />
+                    </div>
+                  )
+                )}
+              </div>
             </div>
           </>
         )}
@@ -133,7 +133,7 @@ class App extends React.Component {
         </div>
         <div className="voiceContainer row">
           {this.state.displayedVoices.map((voice) => (
-            <div className="col-2">
+            <div key={voice.id} className="col-2">
               <Voice
                 title={voice.name}
                 id={voice.id}
