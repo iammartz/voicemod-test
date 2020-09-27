@@ -30,7 +30,7 @@ class App extends React.Component {
 
   componentDidMount() {
     let storedVoices = JSON.parse(localStorage.getItem("favouriteVoices"));
-    if (storedVoices[0] != null)
+    if (storedVoices)
       storedVoices.forEach((voice) => this.props.toggleFavouriteVoice(voice));
   }
 
