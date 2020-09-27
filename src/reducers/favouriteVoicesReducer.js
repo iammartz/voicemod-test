@@ -8,6 +8,7 @@ export default (state = {favouriteVoices: []}, action) => {
             else{
                 state.favouriteVoices = state.favouriteVoices.filter(voice => !(voice.id === action.payload.id))
             }
+            localStorage.setItem('favouriteVoices', JSON.stringify(state.favouriteVoices, ["id", "title", "icon", "tags"]))
             return {...state, favouriteVoices: state.favouriteVoices}
         }
         case 'GET_FAVOURITE_VOICES': {
